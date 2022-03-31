@@ -1,7 +1,19 @@
 
-    const TOKEN = 'Bearer BQBEUwT7u0BMEdT1ACRmZlaOv7rPcJRYm3aik-2xikp0osPlcp3ZZ00uZtitBap6_KLFsELrZKxQITbjliH-ShSNy3BFvGAbpPr0-DS2LWLWHtPMRCNeHf9vK0i4lqS85nU7UQY67-yvAXK0smxlqwR9WR8gIIvh9Q0'
-    
-    export const PARAMETROS_PETICION = {
-    method: 'GET',
-    headers: {Authorization: TOKEN}
+export async function generarTOKEN(){
+    let URI = "https://accounts.spotify.com/api/token"
+
+    let client_id = "client_id=63067bf38fbe46b580ffc91302405894"
+    let client_secret = "client_secret=521c1238ee234e7ab36ecc1af897811c"
+    let grant_type = "grant_type=client_credentials"
+
+    let paramatros = {
+        method: "POST",
+        headers: {"content-type":"application/x-www-form-urlencoded"},
+        body: `${client_id}&${client_secret}&${grant_type}`
+    }
+
+    let respuesta = await fetch(URI, paramatros)
+    let respuestjson = await respuesta.json()
+    let token = (`${respuestjson.token_type} ${respuestjson.access_token}`)
+    return(token)
 }

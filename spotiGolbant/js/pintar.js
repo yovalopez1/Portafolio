@@ -35,9 +35,9 @@ export function pintarCanciones(resultado){
         columna.appendChild(tarjeta)
         base.appendChild(columna)
 
-        console.log(tracks.name)
-        console.log(tracks.preview_url)
-        console.log(tracks.album.images[0].url)
+        // console.log(tracks.name)
+        // console.log(tracks.preview_url)
+        // console.log(tracks.album.images[0].url)
     });
     
     // .catch(function(respuesta){ //mostrar el error de la promesa
