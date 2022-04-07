@@ -1,5 +1,5 @@
 export function pintarCanciones(resultado){
-
+    console.log(resultado)
     resultado.tracks.forEach(tracks => {
             
         let base = document.getElementById("base")
@@ -23,7 +23,9 @@ export function pintarCanciones(resultado){
         nombrecancion.textContent=tracks.name
 
         let audio = document.createElement("audio")
+        audio.id = 'audio-player'
         audio.src = tracks.preview_url
+        audio.type = tracks.type
         audio.setAttribute("controls","controls")
 
         //padres e hijos
@@ -31,6 +33,7 @@ export function pintarCanciones(resultado){
         tarjeta.appendChild(imagen)
         tarjeta.appendChild(nombrecancion)
         tarjeta.appendChild(audio)
+
 
         columna.appendChild(tarjeta)
         base.appendChild(columna)
